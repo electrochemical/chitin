@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/style.css"></link>
+    </head>
+    <body>
+        <div id="desktop">
+            {% for item in desktop %}
+            <image style="left: {{ item.left }}px; top: {{ item.top }}px" href="{{ image.link }}"></image>
+            <p style="left: {{ item.left }}px; top: {{ item.top + desktop.image_size }}px">{{ item.name }}</p>
+            {% endfor %}
+        </div>
+        <div id="taskbar">
+            {% for item in taskbar %}
+            {% endfor %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<div id="sidebar"></div>
+<ul id="files"></ul>
+<style>
+/*TODO: set height to fill*/
+#files {
+    position: absolute;
+    height: 100%;
+    flex-flow: column wrap;
+}
+#files li {
+    margin: 5px;
+}
+#files li:hover {
+    background: #EEE;
+}
+#files li.active {
+    background: #DDD;
+}
+</style>
+<script>
+//TODO: init
+//TODO: menu mods in chemical
+fs = require('fs')
+path = require('path')
+dir = require('os').homedir()
+this.showFiles = (e, dir) => {
+    var files = $('#files')
+    fs.readdir(dir, (err, data) => {
+        for(var i in data) files.append('<li>' + data[i] + '</li>')
+    })
+}
+showFiles(null, dir)
+$('html').on('click', '#files li', e => { //TODO: open as tabs on enter
+    $(e.target).toggleClass('active')
+})
+$('html').on('dblclick', '#files li', e => {showFiles(e, dir = path.resolve(dir, '/' + e.target.innerHTML))})
+$('html').on('select_all', $('#files li').addClass('active'))
+$('html').on('clear_selection', $('#files li').removeClass('active'))
+</script>

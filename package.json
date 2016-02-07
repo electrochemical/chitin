@@ -1,0 +1,11 @@
+{
+  "name": "chitin",
+  "version": "0.0.1",
+  "description": "A file manager and desktop built with Chemical",
+  "main": "run.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "somebody",
+  "license": "MIT"
+}
